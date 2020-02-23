@@ -17,6 +17,7 @@
 			</t>
         </xpath>
     </template>
+	<!-- TEST -->
 
     <template id="products_attribute_custom" inherit_id="website_sale.products_attributes" active="True" customize_show="True" name="product_attributes_custom" priority="20">
         <xpath expr="//form[hasclass('js_attributes')]" position="after">
