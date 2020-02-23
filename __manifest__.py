@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 {
     'name': "Show advanced product info",
     'summary': 'Show template info into product',
@@ -10,7 +9,8 @@ Show more info into template website_sale.product as EAN/REF, etc
     'version': '1.0',
     'depends': ['website_sale'],
     'data': [
-        'views/website_sale_template_info.xml'
+        'views/website_sale_template_info.xml',
+        'views/website_sale_template_produts_description.xml',
     ],
     'installable': True,
 }
