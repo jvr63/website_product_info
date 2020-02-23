@@ -37,6 +37,7 @@
 			    <br />
 				<span style="color:grey">Ean: <t t-esc="product.barcode"/></span>
 			</t>
+			<span style="color:grey">Ean: </span>
 		</xpath>
 	</template>
 </odoo>
