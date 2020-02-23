@@ -32,7 +32,7 @@
 
 	<!-- Añade campo EAN en la pagina del producto -->
 	<template id="ean_producto" inherit_id="website_sale.product" active="True" customize_show="True" name="Ean producto" priority="20">
-	    <xpath expr="//img[hasclass('website/image/product.image/{{pimg.id}}/image/90x90')]" position="after">
+	    <xpath expr="//img[hasclass('website/image/product.image')]" position="after">
 			<t t-if="product.barcode">
 			    <br />
 				<span style="color:grey">Ean: <t t-esc="product.barcode"/></span>
