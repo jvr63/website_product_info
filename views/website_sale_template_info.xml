@@ -32,7 +32,7 @@
 
 	<!-- Añade campo EAN en la pagina del producto -->
 	<template id="ean_variante_producto" inherit_id="website_sale.product" active="True" customize_show="True" name="Ean variante producto" priority="20">
-	    <xpath expr="//div/div/div/div/div/div" position="before">
+	    <xpath expr="//div/div/div/div/div/div/div" position="before">
 			<t t-if="product.barcode">
 			    <br />
 				<span style="color:grey">Ean: <t t-esc="product.barcode"/></span>
