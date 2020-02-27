@@ -36,6 +36,7 @@
 			<t t-foreach="product._get_possible_variants_sorted()" t-as="variant_id">
 				<span t-field="variant_id.barcode"/><br />
 				<span t-field="variant_id.id"/><br />
+				<span t-field="product_variant.id"/><br />
 			</t>
 		</xpath>
 	</template>
