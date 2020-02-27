@@ -34,7 +34,7 @@
 	<template id="ean_variante_producto" inherit_id="website_sale.product" active="True" customize_show="True" name="Ean variante producto" priority="20">
 		<xpath expr="//a[@id='add_to_cart']" position="after">
 			<t t-foreach="product._get_valid_product_template_attribute_lines()" t-as="variant_id">
-				<span t-field="variant_id.barcode"/><br />
+				<span t-field="variant_id.value_ids[0].barcode"/><br />
 			</t>
 		</xpath>
 	</template>
