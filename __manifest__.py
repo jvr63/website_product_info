@@ -4,7 +4,7 @@
     'description': """
 Show more info into template website_sale.product as EAN/REF, etc
     """,
-    'author': 'Juan Vázquez Moreno',
+    'author': 'Juan Vázquez Moreno y JVR',
     'category': 'Website',
     'version': '1.0',
     'depends': ['website_sale'],
