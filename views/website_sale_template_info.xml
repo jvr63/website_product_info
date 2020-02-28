@@ -20,7 +20,7 @@
 
 	<!-- Elimina los filtros de atributos de la pagina tienda principal /SHOP -->
     <template id="products_attribute_custom" inherit_id="website_sale.products_attributes" active="True" customize_show="True" name="Atributos de productos" priority="20">
-        <xpath expr="//form[hasclass('js_attributes')]" position="after">
+        <xpath expr="//t[@t-placeholder='select']" position="before">
 		<script>
 		      if(window.location.href.indexOf("shop/") ==  -1){
 		         form = document.querySelector('.js_attributes');
