@@ -17,7 +17,7 @@ class WebsiteSaleGuadalstoreProductInfo(WebsiteSaleGuadalstoreSearch):
         """
             Added ref and barcode to original response
         """
-        res = super(WebsiteSaleGuadalstore, self).get_combination_info_website(product_template_id, product_id, combination, add_qty, **kw)
+        res = super(WebsiteSaleGuadalstoreSearch, self).get_combination_info_website(product_template_id, product_id, combination, add_qty, **kw)
         product = request.env['product.product'].browse(int(product_id))
         res.update({
             'barcode': product.barcode,
