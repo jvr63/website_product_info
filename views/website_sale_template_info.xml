@@ -22,7 +22,7 @@
     <template id="products_attribute_custom" inherit_id="website_sale.products_attributes" active="True" customize_show="True" name="Atributos de productos" priority="20">
         <xpath expr="//form[hasclass('js_attributes')]" position="after">
 		<script>
-			if(window.location.pathname === "/shop" && window.location.search === "") {
+			if(window.location.pathname === "/shop" &amp;&amp; window.location.search === "") {
 		        	form = document.querySelector('.js_attributes');
 		        	form.style.display = "none";
 			}
