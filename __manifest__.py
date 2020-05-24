@@ -7,7 +7,7 @@ Show more info into template website_sale.product as EAN/REF, etc
     'author': 'Juan Vázquez Moreno y JVR',
     'category': 'Website',
     'version': '1.0',
-    'depends': ['website_search'],
+    'depends': ['website_sale'],
     'data': [
         'views/website_sale_template_info.xml',
         'views/website_sale_product_info.xml',
