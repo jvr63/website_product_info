@@ -5,7 +5,7 @@ import logging
 
 from odoo import fields, http, tools, _
 from odoo.http import request
-from website_search.controllers.main import WebsiteSaleGuadalstoreSearch
+from odoo.addons.website_search.controllers.main import WebsiteSaleGuadalstoreSearch
 from odoo.osv import expression
 
 _logger = logging.getLogger(__name__)
