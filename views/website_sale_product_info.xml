@@ -2,10 +2,9 @@
 <odoo>
 
 	<template id="GS_assets_backend_inherit_sale" inherit_id="sale.assets_backend_inherit_sale" name="Sale backend assets">
-		<xpath expr="script[@src='/sale/static/src/js/product_configurator_mixin.js']" position="replace">
+		<xpath expr="//script[@src='/sale/static/src/js/product_configurator_mixin.js']" position="replace">
        			<!-- GS override -->
-            		<script type="text/javascript" src="/sale/static/src/js/product_configurator_mixin.js"></script>
-        	</xpath>
+			<script type="text/javascript" src="/website_product_info/static/src/js/GS_product_configurator_mixin.js"></script>
+		</xpath>
 	</template>
-
 </odoo>

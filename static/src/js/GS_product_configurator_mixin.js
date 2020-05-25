@@ -1,6 +1,8 @@
 odoo.define('sale.ProductConfiguratorMixin', function (require) {
 'use strict';
 
+console.log("JS cargado");
+
 var concurrency = require('web.concurrency');
 var core = require('web.core');
 var utils = require('web.utils');
