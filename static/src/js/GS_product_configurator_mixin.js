@@ -529,16 +529,6 @@ var ProductConfiguratorMixin = {
     // end modifications
 
     /**
-     * Highlight selected color
-     *
-     * @private
-     * @param {MouseEvent} ev
-     */
-    _onChangeColorAttribute: function (ev) {
-        var $parent = $(ev.target).closest('.js_product');
-        $parent.find('.css_attribute_color')
-
-    /**
      * returns the formatted price
      *
      * @private
