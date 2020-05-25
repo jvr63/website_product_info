@@ -1,8 +1,6 @@
 odoo.define('sale.ProductConfiguratorMixin', function (require) {
 'use strict';
 
-console.log("JS cargado");
-
 var concurrency = require('web.concurrency');
 var core = require('web.core');
 var utils = require('web.utils');
@@ -469,6 +467,15 @@ var ProductConfiguratorMixin = {
                 combination.carousel,
                 isCombinationPossible
             );
+	    // Guadalsistema update EAN and etc
+	    console.log("Cambio de variante");
+	    self._updateProductInfo(
+                $parent.closest(rootComponentSelectors.join(', ')),
+                combination.product_id,
+                combination.product_template_id,
+                isCombinationPossible
+	    );
+	    // end modification
         }
 
         $parent
@@ -489,6 +496,47 @@ var ProductConfiguratorMixin = {
 
         this.handleCustomValues($(ev.target));
     },
+
+    // Guadalsistema update EAN and etc
+    /**
+     * Updates the product image.
+     * This will use the productId if available or will fallback to the productTemplateId.
+     *
+     * @private
+     * @param {$.Element} $productContainer
+     * @param {integer} product_id
+     * @param {integer} productTemplateId
+     */
+    _updateProductInfo: function ($productContainer, productId, productTemplateId) {
+	console.log("Se llama a la funcion");
+        //var model = productId ? 'product.product' : 'product.template';
+        //var modelId = productId || productTemplateId;
+        //var imageUrl = '/web/image/{0}/{1}/' + (this._productImageField ? this._productImageField : 'image');
+        //var imageSrc = imageUrl
+        //    .replace("{0}", model)
+        //    .replace("{1}", modelId);
+
+        //var imagesSelectors = [
+        //    'span[data-oe-model^="product."][data-oe-type="image"] img:first',
+        //    'img.product_detail_img',
+        //    'span.variant_image img',
+        //    'img.variant_image',
+        //];
+
+        //var $img = $productContainer.find(imagesSelectors.join(', '));
+        //$img.attr('src', imageSrc);
+    },
+    // end modifications
+
+    /**
+     * Highlight selected color
+     *
+     * @private
+     * @param {MouseEvent} ev
+     */
+    _onChangeColorAttribute: function (ev) {
+        var $parent = $(ev.target).closest('.js_product');
+        $parent.find('.css_attribute_color')
 
     /**
      * returns the formatted price
