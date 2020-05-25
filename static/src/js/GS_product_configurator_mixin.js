@@ -508,7 +508,8 @@ var ProductConfiguratorMixin = {
      * @param {integer} productTemplateId
      */
     _updateProductInfo: function ($productContainer, productId, productTemplateId) {
-	console.log("Se llama a la funcion");
+	console.log(combinationData.barcode);
+	
         //var model = productId ? 'product.product' : 'product.template';
         //var modelId = productId || productTemplateId;
         //var imageUrl = '/web/image/{0}/{1}/' + (this._productImageField ? this._productImageField : 'image');
