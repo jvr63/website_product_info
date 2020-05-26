@@ -468,13 +468,7 @@ var ProductConfiguratorMixin = {
                 isCombinationPossible
             );
 	    // Guadalsistema update EAN and etc
-	    console.log("Cambio de variante");
-	    self._updateProductInfo(
-                $parent.closest(rootComponentSelectors.join(', ')),
-                combination.product_id,
-                combination.product_template_id,
-                isCombinationPossible
-	    );
+	    self._updateProductInfo(combination);
 	    // end modification
         }
 
@@ -507,25 +501,9 @@ var ProductConfiguratorMixin = {
      * @param {integer} product_id
      * @param {integer} productTemplateId
      */
-    _updateProductInfo: function ($productContainer, productId, productTemplateId) {
-	console.log(combinationData.barcode);
-	
-        //var model = productId ? 'product.product' : 'product.template';
-        //var modelId = productId || productTemplateId;
-        //var imageUrl = '/web/image/{0}/{1}/' + (this._productImageField ? this._productImageField : 'image');
-        //var imageSrc = imageUrl
-        //    .replace("{0}", model)
-        //    .replace("{1}", modelId);
-
-        //var imagesSelectors = [
-        //    'span[data-oe-model^="product."][data-oe-type="image"] img:first',
-        //    'img.product_detail_img',
-        //    'span.variant_image img',
-        //    'img.variant_image',
-        //];
-
-        //var $img = $productContainer.find(imagesSelectors.join(', '));
-        //$img.attr('src', imageSrc);
+    _updateProductInfo: function (combination) {
+	let el = document.querySelector("#GS_product_info");
+	el.innerHTML = "<p class=text-muted">"Ean: " + combination.barcode + "<br>Part. number: " + combination.default_code + "</p><hr></hr>";
     },
     // end modifications
 

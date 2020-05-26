@@ -9,14 +9,8 @@
 	</template>
 
 	<template id="GS_producti_info" inherit_id="website_sale.product" name="GS Product info" customize_show="True">
-		<xpath expr="//div[contains(@id, 'product_details')]" position="after">
-			<div>
-				<hr>
-					<p class="text-muted">
-						XMLHTTP request failed
-					</p>
-				</hr>
-			</div>
+		<xpath expr="//div[contains(@id, 'product_details')]/p[hasclass('text-muted') and last()]" position="before">
+			<div id="GS_product_info"></div>
 		</xpath>
 	</template>
 
