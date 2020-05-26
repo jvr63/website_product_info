@@ -467,6 +467,9 @@ var ProductConfiguratorMixin = {
                 combination.carousel,
                 isCombinationPossible
             );
+	    // Guadalsistema update EAN and etc
+	    self._updateProductInfo(combination);
+	    // end modification
         }
 
         $parent
@@ -487,6 +490,22 @@ var ProductConfiguratorMixin = {
 
         this.handleCustomValues($(ev.target));
     },
+
+    // Guadalsistema update EAN and etc
+    /**
+     * Updates the product image.
+     * This will use the productId if available or will fallback to the productTemplateId.
+     *
+     * @private
+     * @param {$.Element} $productContainer
+     * @param {integer} product_id
+     * @param {integer} productTemplateId
+     */
+    _updateProductInfo: function (combination) {
+	let el = document.querySelector("#GS_product_info");
+	el.innerHTML = "<p class=text-muted>Ean: " + combination.barcode + "<br>Part. number: " + combination.default_code + "</p><hr></hr>";
+    },
+    // end modifications
 
     /**
      * returns the formatted price
