@@ -503,7 +503,7 @@ var ProductConfiguratorMixin = {
      */
     _updateProductInfo: function (combination) {
 	let el = document.querySelector("#GS_product_info");
-	el.innerHTML = "<p class=text-muted">"Ean: " + combination.barcode + "<br>Part. number: " + combination.default_code + "</p><hr></hr>";
+	el.innerHTML = "<p class=text-muted>Ean: " + combination.barcode + "<br>Part. number: " + combination.default_code + "</p><hr></hr>";
     },
     // end modifications
 
