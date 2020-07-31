@@ -502,9 +502,11 @@ var ProductConfiguratorMixin = {
      * @param {integer} productTemplateId
      */
     _updateProductInfo: function (combination) {
-	let el = document.querySelector("#GS_product_info");
-	el.innerHTML = "<p class=text-muted>Ean: " + combination.barcode + "<br>Part. number: " + combination.default_code + "</p><hr></hr>";
-    },
+		let el = document.querySelector("#GS_product_info");
+		el.innerHTML = "<p class=text-muted>Ean: " + combination.barcode + "<br>Part. number: " + combination.default_code + "</p><hr></hr>";
+		// SEO GOOGLE CONSOLE SEARCH
+
+	},
     // end modifications
 
     /**
