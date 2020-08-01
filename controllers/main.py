@@ -17,6 +17,7 @@ class WebsiteSaleGuadalstoreProductInfo(WebsiteSale):
         res = super(WebsiteSaleGuadalstoreProductInfo, self).get_combination_info_website(product_template_id, product_id, combination, add_qty, **kw)
         product = request.env['product.product'].browse(int(product_id))
         res.update({
+            'brand_name': request.env['product.template'].browse(int(product_template_id)).product_brand_id.name,
             'barcode': product.barcode,
             'default_code': product.default_code
         })

@@ -502,11 +502,41 @@ var ProductConfiguratorMixin = {
      * @param {integer} productTemplateId
      */
     _updateProductInfo: function (combination) {
-		let el = document.querySelector("#GS_product_info");
-		el.innerHTML = "<p class=text-muted>Ean: " + combination.barcode + "<br>Part. number: " + combination.default_code + "</p><hr></hr>";
-		// SEO GOOGLE CONSOLE SEARCH
 
-	},
+	console.log(combination);
+	let el = document.querySelector("#GS_product_info");
+	el.innerHTML = "<p class=text-muted>Ean: " + combination.barcode + "<br>Part. number: " + combination.default_code + "</p><hr></hr>";
+	let statusStock = "OutOfStock";
+	if(combination.virtual_available){
+		statusStock = "InStock";
+	}
+	// SEO GOOGLE CONSOLE SEARCH
+	let ldjson = {
+		"@context": "https://schema.org/",
+		"@type": "Product",
+		"gtin13": combination.barcode,
+		"name" : combination.display_name,
+		"image": [
+			"https://guadalstore.com/website/image/product.product/"+combination.product_id+"/image"
+		],
+		"brand": {
+			"@type": "Brand",
+			"name": combination.brand_name
+		},
+		"offers": {
+			"@type": "Offer",
+			"url": window.location.href,
+			"priceCurrency": "EUR",
+			"price": combination.price,
+			"availability": "https://schema.org/" + statusStock,
+			"seller": {
+				"@type": "Organization",
+				"name": "Guadalstore S.L."
+			}
+		}
+	};
+	document.querySelector("#SearchConsoleSEO").innerHTML = JSON.stringify(ldjson);
+    },
     // end modifications
 
     /**
