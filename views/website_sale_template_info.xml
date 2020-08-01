@@ -40,4 +40,52 @@
 			</t>
 		</xpath>
 	</template>
+
+
+    <!-- Product item used by /shop and /shop/cart -->
+    <template id="website_sale.products_item" name="Products item Guadalstore">
+        <t t-set="product_href" t-value="keep('/shop/product/%s' % slug(product), page=(pager['page']['num'] if pager['page']['num']&gt;1 else None))" />
+
+        <t t-set="combination_info" t-value="product._get_combination_info(only_template=True, add_qty=add_qty or 1, pricelist=pricelist)"/>
+
+        <form action="/shop/cart/update" method="post">
+            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+            <div>
+                <div class="ribbon-wrapper">
+                    <a href="#" role="button" class="ribbon btn btn-danger">Sale</a>
+                </div>
+                <div class="oe_product_image">
+                    <a itemprop="url" t-att-href="product_href">
+                        <span t-field="product.image" t-options="{'widget': 'image', 'resize': None if product_image_big else '300x300'}"/>
+                    </a>
+                </div>
+                <t t-if="show_publish">
+                    <div id="website_published_button" class="" groups="sales_team.group_sale_manager">
+                        <t t-call="website.publish_management">
+                            <t t-set="object" t-value="product" />
+                            <t t-set="publish_edit" t-value="True" />
+                            <t t-set="action" t-value="'product.product_template_action'" />
+                        </t>
+                    </div>
+                </t>
+                <section>
+                    <h6>
+                        <a t-att-href="product_href" t-att-content="product.name" t-field="product.name" />
+                        <a role="button" t-if="not show_publish and not product.website_published" t-att-href="product_href" class="btn btn-secondary btn-sm btn-danger" title="This product is unpublished.">Unpublished</a>
+                    </h6>
+                    <div class="product_price">
+                        <b>
+                            <t t-if="True"><!-- compatibility 12.0 -->
+                                <del t-attf-class="text-danger mr8 {{'' if combination_info['has_discounted_price'] else 'd-none'}}" style="white-space: nowrap;" t-esc="combination_info['list_price']" t-options="{'widget': 'monetary', 'display_currency': website.currency_id}" />
+                            </t>
+                            <span t-if="combination_info['price']" t-esc="combination_info['price']" t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+                            <span style="display:none;" t-esc="combination_info['price']" />
+                            <span style="display:none;" t-esc="website.currency_id.name" />
+                        </b>
+                    </div>
+                </section>
+            </div>
+        </form>
+    </template>
+
 </odoo>
