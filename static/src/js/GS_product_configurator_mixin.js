@@ -514,6 +514,7 @@ var ProductConfiguratorMixin = {
 		"@context": "https://schema.org/",
 		"@type": "Product",
 		"gtin13": combination.barcode,
+		"sku": combination.barcode,
 		"name" : combination.display_name,
 		"image": [
 			"https://guadalstore.com/website/image/product.product/"+combination.product_id+"/image"
