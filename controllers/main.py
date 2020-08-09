@@ -15,9 +15,10 @@ class WebsiteSaleGuadalstoreProductInfo(WebsiteSale):
     def get_combination_info_website(self, product_template_id, product_id, combination, add_qty, **kw):
         """ Added ref and barcode to original response """
         res = super(WebsiteSaleGuadalstoreProductInfo, self).get_combination_info_website(product_template_id, product_id, combination, add_qty, **kw)
-        product = request.env['product.product'].browse(int(product_id))
+        product = request.env['product.product'].browse(res['product_id'])
         res.update({
-            'brand_name': request.env['product.template'].browse(int(product_template_id)).product_brand_id.name,
+            'before_product_id': product_id,
+            'brand_name': request.env['product.template'].browse(res['product_template_id']).product_brand_id.name,
             'barcode': product.barcode,
             'default_code': product.default_code
         })

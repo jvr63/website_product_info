@@ -492,18 +492,10 @@ var ProductConfiguratorMixin = {
     },
 
     // Guadalsistema update EAN and etc
-    /**
-     * Updates the product image.
-     * This will use the productId if available or will fallback to the productTemplateId.
-     *
-     * @private
-     * @param {$.Element} $productContainer
-     * @param {integer} product_id
-     * @param {integer} productTemplateId
-     */
     _updateProductInfo: function (combination) {
 
 	let el = document.querySelector("#GS_product_info");
+	if (el === null) { return; }
 	el.innerHTML = "<p class=text-muted>Ean: " + combination.barcode + "<br>Part. number: " + combination.default_code + "</p><hr></hr>";
 	let statusStock = "OutOfStock";
 	if(combination.virtual_available){
@@ -514,7 +506,7 @@ var ProductConfiguratorMixin = {
 		"@context": "https://schema.org/",
 		"@type": "Product",
 		"gtin13": combination.barcode,
-		"sku": combination.barcode,
+		"sku": combination.dafault_code,
 		"name" : combination.display_name,
 		"image": [
 			"https://guadalstore.com/website/image/product.product/"+combination.product_id+"/image"
